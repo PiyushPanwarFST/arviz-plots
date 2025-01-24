@@ -1,7 +1,12 @@
 """Utilities for batteries included plots."""
 
+# import importlib
+
+# import packaging
+# from matplotlib import rcParams
 from arviz_base.utils import _var_names
 from xarray import Dataset
+from arviz import InferenceData
 
 from arviz_plots.plot_collection import concat_model_dict
 
@@ -88,3 +93,5 @@ def filter_aes(pc, aes_map, artist, sample_dims):
     _, all_loop_dims = pc.update_aes(ignore_aes=ignore_aes)
     artist_dims = [dim for dim in sample_dims if dim not in all_loop_dims]
     return artist_dims, artist_aes, ignore_aes
+
+
