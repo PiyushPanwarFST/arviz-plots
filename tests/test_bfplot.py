@@ -79,11 +79,11 @@ def test_plot_bf_with_custom_backend_kwargs(create_test_idata):
     assert result["BF01"] > 0
     assert axes is not None
     plt.close('all')  
-
+    
 def test_plot_bf_show(create_test_idata):
     """Test plot_bf with the show parameter."""
     idata = create_test_idata
-    result, axes = plot_bf(idata, var_name="a", ref_val=0, show=False)  # Avoid show=True
+    result, axes = plot_bf(idata, var_name="a", ref_val=0, show=False)  
     assert "BF10" in result
     assert "BF01" in result
     assert result["BF10"] > 0
