@@ -11,12 +11,17 @@ import os
 
 _log = logging.getLogger(__name__)
 
-from arviz_plots._version import __version__
+from arviz_plots._version import __version__  # noqa: E402, F401
 
-from arviz_plots.plot_collection import PlotCollection
-from arviz_plots.plots import *
-from arviz_plots import style
+from arviz_plots.plot_collection import PlotCollection  # noqa: E402
+import arviz_plots.plots as plots  # noqa: E402
+from arviz_plots import style  # noqa: E402
 
+__all__ = [
+    "PlotCollection",
+    "plots",
+    "style",
+]
 
 if not logging.root.handlers:
     _handler = logging.StreamHandler()
@@ -297,12 +302,12 @@ try:
     ]
 
     def _mpl_cm(name, colorlist):
-        cmap = LinearSegmentedColormap.from_list(name, colorlist, N=256)
-        if "cet_" + name not in mpl.colormaps():
-            mpl.colormaps.register(cmap, name="cet_" + name)
+        cmap = LinearSegmentedColormap.from_list(name, colorlist, N=256)  # noqa: F821
+        if "cet_" + name not in mpl.colormaps():  # noqa: F821
+            mpl.colormaps.register(cmap, name="cet_" + name)    # noqa: F821
 
     try:
-        import colorcet
+        import colorcet  # noqa: F401
     except ModuleNotFoundError:
         _mpl_cm("gray", _linear_grey_10_95_c0)
         _mpl_cm("gray_r", list(reversed(_linear_grey_10_95_c0)))

@@ -6,7 +6,6 @@
 # from matplotlib import rcParams
 from arviz_base.utils import _var_names
 from xarray import Dataset
-from arviz import InferenceData
 
 from arviz_plots.plot_collection import concat_model_dict
 
